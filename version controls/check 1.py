@@ -7,7 +7,7 @@ from UserWrittenModules import MultiprocessingFunctions as multi
 if __name__ == '__main__':
     stopper = psutil.Process()
     speech = thread.Thread(target=multi.SpeechToText)
-    face_cascade = cv.CascadeClassifier(r"Assets/haarcascade_frontalface_default.xml")
+    face_cascade = cv.CascadeClassifier(r"Assets/Haarcascades/haarcascade_frontalface_default.xml")
     cam = cv.VideoCapture(0)
     if not cam.isOpened():
         print("Camera Failed to Open!.")
@@ -16,6 +16,9 @@ if __name__ == '__main__':
     # initialisations of threads
     while 1:
         ret, img = cam.read()
+        physicalDistancing = thread.Thread(target=multi.DetectPhysicalDistancing, args=(img.copy(),))
+        if not physicalDistancing.is_alive():
+            physicalDistancing.start()
         upper_body = face_cascade.detectMultiScale(
             img,
             scaleFactor=1.1,

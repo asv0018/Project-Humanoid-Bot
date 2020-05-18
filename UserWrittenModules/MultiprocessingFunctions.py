@@ -5,12 +5,13 @@ import speech_recognition as sr
 import pyttsx3
 
 #  NIRAN you should change the below credentials in order to use your dialogflow account!. please do the necessorry
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r'Assets/humanoid-bot-qxmcwn-c1ebdc7db876.json' # it is there in this folder inside the currrent working directory
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = r'Assets/Dialogflow credentials/humanoid-bot-qxmcwn-c1ebdc7db876.json' # it is there in this folder inside the currrent working directory
 DIALOGFLOW_PROJECT_ID = 'humanoid-bot-qxmcwn'
 DIALOGFLOW_LANGUAGE_CODE = 'en'
 SESSION_ID = 'me'
-text_to_be_analyzed = ""
 
+def MakeAwareness(text):
+    TextToSpeech(text)
 
 def SpeechToText():
     # obtain audio from the microphone
@@ -31,8 +32,9 @@ def SpeechToText():
         print("Could not process because of the reason : {0}".format(e))
 
 def TextToSpeech(text):
+    urilocation = r'Assets/Audio Files/speechCommand.mp3'
     engine = pyttsx3.init()  # object creation
-    engine.setProperty('rate', 210)  # setting up new voice rate
+    engine.setProperty('rate', 190)  # setting up new voice rate
     voices = engine.getProperty('voices')  # getting details of current voice
     engine.setProperty('voice', voices[1].id)  # changing index, changes voices. 1 for female
     engine.say(text)
@@ -54,4 +56,19 @@ def DialogflowSocket(queryText):
     #print("Fulfillment text:", response.query_result.fulfillment_text)
     return str(response.query_result.fulfillment_text)
 
-
+'''
+#if i use gTTS module then we can use this speaklikerobot else, i cannot use this!.
+def SpeakLikeRobot(uri):
+    freq, bitSize, channels, buffer, volume = 25000, -16, 2, 2500, 1.0
+    pygame.mixer.init(freq, bitSize, channels, buffer)
+    pygame.mixer.music.set_volume(volume)
+    clock = pygame.time.Clock()
+    try:
+        pygame.mixer.music.load(uri)
+    except pygame.error:
+        print("file {} not found! ({})".format(uri, pygame.get_error()))
+        return
+    pygame.mixer.music.play()
+    while pygame.mixer.music.get_busy():
+        clock.tick(300)
+'''

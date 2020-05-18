@@ -1,0 +1,12 @@
+************************************************************************************************************************
+>>> THIS IS A HUMANOID BOT PROJECT DONE FOR JEEVA SAMRAKSHAK HACKATHON CONDUCTED BY C AND IT DEPT OF REVA UNIVERSITY
+>>> THIS BOT SPREAD AWARENESS TO PEOPLE AND CHILDREN,BY STATE OF THE ART FEATURE COMMUNICATION THROUGH SPEECH.
+>>> THIS BOT ALSO DETECTS IF SOCIAL DISTANCING IS NOT MAINTAINED,WILL TRY TO MAKE THEM UNDERSTAND THE NECESSITY OF IT
+    AND ALERTS THEM.
+>>> CREDITS : -                           TEAM NO 22 | WUHAN HUNTER SQUAD
+                                                  NIRAN N ( TRAINING OF BOT TO SPEAK )
+                                                  SHREEVALLABHA A ( YOLOv3 BASED PHYSICAL DISTANCING MONITERING )
+
+                                                 THANK YOU
+
+************************************************************************************************************************

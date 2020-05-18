@@ -1,0 +1,8 @@
+TO RUN IT ON RPi 3B+ :
+1. Make sure you have all the packages as per the requirements.txt
+2. To install opencv check LogBook.txt
+3. then once everything is done, create two seperate instances of terminal and run SpeechScript.py in one terminal and
+MoniterScript.py in another terminal
+4. If you wish to work with this project, always run the scripts through terminal. for more info check LogBook.txt
+5. Please document any issues if we face while working on the project, and how u rectified!. do it if it is important.
+

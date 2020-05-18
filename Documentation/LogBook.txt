@@ -1,0 +1,65 @@
+*****************************************************************************************************************************************
+*                                         LOG-CAT FOR WANG REDA, THE HUMANOID BOT                                                       *
+*****************************************************************************************************************************************
+
+
+*****************************************************************************************************************************************
+*TO INSTALL OPEN CV ON RASPBERRY PI 3B+ WE USED THESE COMMANDS :                                                                        *
+*****************************************************************************************************************************************
+IN TERMINAL :
+
+sudo pip3 install opencv-python
+
+After installation we get error if we import cv2
+If you get the error of libqt4-test then install libqt by following commands:
+
+sudo apt install libqtgui4
+
+sudo apt install libqt4-test
+
+then still you may get some errors like :
+from .cv2 import * ImportError: libjasper.so.1: cannot open shared object file: No such file or directory
+
+then use :
+sudo apt install libjasper1
+sudo apt-get --yes --force-yes install libatlas-base-dev
+
+then finally again when we use import cv2, we get one more error:
+from .cv2 import * ImportError: /usr/local/lib/python3.7/dist-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so: undefined symbol: __
+atomic_fetch_add_8
+
+we used the below snippet to solve the issue :
+$ nano .bashrc under root
+add：export LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1
+exit with save file.
+$ source .bashrc
+
+now try to use the import cv2
+IT WORKS. IT WORKED FOR US!
+do not forget to pip the below package as well :
+
+sudo pip3 install opencv-contrib-python
+
+ONE MORE ISSUE :
+When the script is run in terminal directly, wont get any issues.
+But, when doing it with idle,thonny IDE, we still get the issue as :
+from .cv2 import * ImportError: /usr/local/lib/python3.7/dist-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so: undefined symbol: __
+atomic_fetch_add_8
+
+in terminal, use the above command and try to open the ide environments.
+$ LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1 idle    # this is for running in idle
+$ LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1 thonny    # this is for running in Thonny
+
+IT WORKS. IT WORKED FOR US!
+
+*****************************************************************************************************************************************
+
+
+
+*****************************************************************************************************************************************
+*TO DOWNLOAD YOLOv3 WEIGHTS:                                                                                                            *
+*****************************************************************************************************************************************
+
+TERMINAL :
+wget https://pjreddie.com/media/files/yolov3.weights
+*****************************************************************************************************************************************
