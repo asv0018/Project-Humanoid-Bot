@@ -6,7 +6,7 @@
 TEAM.NO 22 | WUHAN HUNTER SQUAD<br>
 NIRAN N   |   SHREEVALLABHA A<br>
 <p>Tech stack used : Python3.7, OpenCV, Embedded Systems, DialogFlow (GCP), SpeechRecognition, RaspberryPI 3B+.</p>
-<h8>JEEVASAMRAKSHAK HACKATHON | C & IT Department, REVA University, Bengaluru.</h8>
+<p>JEEVASAMRAKSHAK HACKATHON | C & IT Department, REVA University, Bengaluru.</p>
 # Wang-Reda
  A Conversational Robot for Physical distancing awareness and threat warning system.
 
